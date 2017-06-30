@@ -1,0 +1,43 @@
+box: java
+
+build:
+  steps:
+    - script:
+        name: build
+        code: echo ok
+
+# test_11g_xe_r2:
+#   services:
+#     - name: oracledb
+#       id: viniciusam/oracledb
+#       username: $DOCKER_USER
+#       password: $DOCKER_PASSWORD
+#       tag: 11g-xe-r2
+#   steps:
+#     - script:
+#         name: install utPLSQL
+#         code: bash .wercker/wait_for_db.sh
+
+test_12c_se2_r1:
+  services:
+    - name: oracledb
+      id: viniciusam/oracledb
+      username: $DOCKER_USER
+      password: $DOCKER_PASSWORD
+      tag: 12c-se2-r1-v2
+  steps:
+    - script:
+        name: install utPLSQL
+        code: bash .wercker/wait_for_db.sh
+
+test_12c_se2_r2:
+  services:
+    - name: oracledb
+      id: viniciusam/oracledb
+      username: $DOCKER_USER
+      password: $DOCKER_PASSWORD
+      tag: 12c-se2-r2-v2
+  steps:
+    - script:
+        name: install utPLSQL
+        code: bash .wercker/wait_for_db.sh
